@@ -1,0 +1,17 @@
+name: 01-scenario-hcl
+
+on:  
+  push:
+    tags:
+      - 01-scenario-hcl-*
+
+jobs:
+  cnspec-scan-hcl:
+    runs-on: ubuntu-latest
+    container: mondoo/cnspec:latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Scan Terraform HCL (pre-plan)
+        run: cnspec version
