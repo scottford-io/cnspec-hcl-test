@@ -1,9 +1,8 @@
 name: 01-scenario-hcl
 
-on:  
-  push:
-    tags:
-      - 01-scenario-hcl-*
+on:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   cnspec-scan-hcl:
