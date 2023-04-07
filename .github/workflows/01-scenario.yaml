@@ -7,7 +7,7 @@ on:
 jobs:
   cnspec-scan-hcl:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/head/01-scenario-hcl/*' }}
+    if: ${{ github.ref == 'refs/head/01-scenario-hcl/if' }}
     container: mondoo/cnspec:latest
 
     steps:
