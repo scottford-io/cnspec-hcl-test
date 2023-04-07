@@ -8,6 +8,7 @@ jobs:
   cnspec-scan-hcl:
     runs-on: ubuntu-latest
     container: mondoo/cnspec:latest
+    if: startsWith(github.ref, 'refs/head/01-scenario-hcl**')
 
     steps:
       - name: Check out repository code
