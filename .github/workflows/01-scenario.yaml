@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
         - '01-scenario-hcl/**'
+  workflow_dispatch:
 
 jobs:
   cnspec-scan-hcl:
