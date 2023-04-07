@@ -7,11 +7,12 @@ on:
 jobs:
   cnspec-scan-hcl:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/head/01-scenario-hcl/**' }}
+    if: ${{ github.ref == 'refs/head/01-scenario-hcl/*' }}
     container: mondoo/cnspec:latest
 
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+
       - name: Scan Terraform HCL (pre-plan)
         run: cnspec scan terraform 01-scenario-hcl -f ./policies/okta-security.mql.yaml
