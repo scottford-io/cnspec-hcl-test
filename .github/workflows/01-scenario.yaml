@@ -1,8 +1,9 @@
 name: 01-scenario-hcl
 
-on:
+on:  
   pull_request:
-    types: [opened, reopened]
+    branches:
+        - '01-scenario-hcl/**'
 
 jobs:
   cnspec-scan-hcl:
@@ -13,4 +14,4 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Scan Terraform HCL (pre-plan)
-        run: cnspec version
+        run: cnspec scan terraform 01-scenario-hcl -f ./policies/okta-security.mql.yaml
